@@ -38,15 +38,3 @@ jobs:
         run: |
           git config --global user.name $GITHUB_ACTOR
           git config --global user.email $GITHUB_ACTOR@users.noreply.github.com
-
-      - name: Push new artifacts into branch
-        run: |
-          mkdir DEPLOYING
-          mv out DEPLOYING/out
-          echo "Pushing build to main"
-          mv .git DEPLOYING/.git
-          cd DEPLOYING
-          git add -A
-          git commit -m "Automated build"
-          git push origin main
-          cd ..
