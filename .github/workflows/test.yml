@@ -42,7 +42,7 @@ jobs:
       - name: Push new artifacts into branch
         run: |
           mkdir DEPLOYING
-          mv .git 
+          mv .git DEPLOYING/.git
           mv out DEPLOYING/out
           echo "Pushing build to main"
           mv .git DEPLOYING/.git
