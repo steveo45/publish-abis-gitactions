@@ -32,3 +32,17 @@ jobs:
         run: |
           forge test -vvv
         id: test
+
+      - name: Push new artifacts into branch
+        run: |
+          export DEPLOY_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+          export GIT_COMMIT=$(git rev-parse --short HEAD)
+          mkdir DEPLOYING
+          mv out DEPLOYING/out
+          echo "Pushing build to main"
+          mv .git DEPLOYING/.git
+          cd DEPLOYING
+          git add -A
+          git commit -m "Automated build"
+          git push origin main
+          cd ..
