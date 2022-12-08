@@ -42,7 +42,7 @@ jobs:
       - name: Push new artifacts into branch
         run: |
           echo "Pushing build to main"
-          git add out
+          git add -f out
           git commit -m "Automated build"
           git push origin stevo45/test-workflow
           cd ..
