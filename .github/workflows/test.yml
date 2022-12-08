@@ -41,11 +41,8 @@ jobs:
 
       - name: Push new artifacts into branch
         run: |
-          mkdir DEPLOYING
-          mv out DEPLOYING/out
           echo "Pushing build to main"
-          cd DEPLOYING
-          git add -A
+          git add out
           git commit -m "Automated build"
           git push origin stevo45/test-workflow
           cd ..
